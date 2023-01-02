@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { NotesService } from 'src/app/services/notes.service';
 import { Notes } from '../../models/Notes';
 @Component({
@@ -8,17 +9,23 @@ import { Notes } from '../../models/Notes';
 })
 export class NotesComponent implements OnInit {
   note = new Notes();
-  notes = [];
+  noteData = {};
   constructor(private noteService: NotesService) {}
 
   ngOnInit(): void {
-    this.noteService.readNotes();
+    this.getNotes();
   }
 
   resetValue() {}
 
   addNote() {
     this.noteService.createNote(this.note).then(() => {});
+  }
+  getNotes() {
+    this.noteService.readNotes().subscribe((res) => {
+      this.noteData = res;
+      console.log(this.noteData);
+    });
   }
   editNote() {}
   deleteNote() {}
