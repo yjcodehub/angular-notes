@@ -1,0 +1,125 @@
+<div class="container">
+  <div class="btn-group mt-3">
+    <button class="btn btn-primary disabled">
+      <i class="bi bi-file-earmark-plus"></i>
+    </button>
+    <button
+      class="btn btn-outline-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#addNote"
+    >
+      Add Note
+    </button>
+  </div>
+  <!-- Add note -->
+  <div class="modal fade" id="addNote" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">New Note</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="noteTitle">Note Title</label>
+            <input
+              type="text"
+              id="noteTitle"
+              class="form-control"
+              [(ngModel)]="note.title"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="noteDesc">Note Description</label>
+            <textarea
+              id="noteDesc"
+              class="form-control"
+              [(ngModel)]="note.noteDesc"
+            ></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancel
+          </button>
+          <button type="button" class="btn btn-primary" (click)="addNote()">
+            Add Note
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Note -->
+  <!-- <div class="modal fade" id="editNote" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Note</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="noteTitle">Note Title</label>
+              <input type="text" id="noteTitle" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label for="noteDesc">Note Description</label>
+              <textarea id="noteDesc" cols="30" rows="10"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancel
+          </button>
+          <button type="button" class="btn btn-primary">Add Note</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="row my-4">
+    <div class="col-sm-6 col-md-3">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5>Angular</h5>
+          <p>
+            The Angular CLI is a command-line interface tool that you use to
+            initialize, develop, scaffold, and maintain Angular applications
+            directly from a command shell.
+          </p>
+        </div>
+        <div class="card-footer justify-content-between d-flex">
+          <button
+            class="btn btn-success me-2 rounded-circle"
+            (click)="editNote()"
+          >
+            <i class="bi bi-pen"></i>
+          </button>
+          <button class="btn btn-danger rounded-circle" (click)="deleteNote()">
+            <i class="bi bi-file-earmark-minus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
